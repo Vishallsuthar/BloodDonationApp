@@ -1,0 +1,92 @@
+
+$PrimaryColor: #e72d3b;
+$WhiteColor: #ffffff;
+$SecondaryColor: #666;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.react-datepicker__day--selected,.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected{
+  
+  background: $PrimaryColor !important;
+}
+body{
+  font-family: 'Poppins', sans-serif;
+}
+.btn{
+  box-shadow: 0px 0px 5px -1px rgba(0, 0, 0 ,0.20);
+}
+.btn:hover{
+  box-shadow: 0px 0px 5px -1px rgba(0, 0, 0 ,0.30);
+}
+.select-button:hover{
+  box-shadow: 0px 0px 8px -1px rgba(0, 0, 0 ,0.30);
+}
+.btn-primary{
+  background: $PrimaryColor !important;
+  border-color: $PrimaryColor !important;
+} 
+.btn-secondary{
+  background: $WhiteColor !important;
+  border-color: $WhiteColor !important;
+  color: $SecondaryColor !important;
+} 
+.TabsMenu{
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid $PrimaryColor;
+}
+.TabsMenu .nav-link{
+  max-width: 50%;
+  flex: 1 1 50%;
+  text-align: center;
+}
+.nav-pills .nav-link, .nav-pills .show {
+  color: $PrimaryColor;
+  background-color: #ffffff;
+  border-radius: 0;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link{
+  color: #fff;
+  background-color: $PrimaryColor;
+  border-radius: 5px;
+}
+.EnqueiryPage{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  .react-datepicker-wrapper{
+    width: 100%;
+  }
+  label{
+    color:$SecondaryColor;
+    font-size: 0.85em;
+    font-weight: 500;
+  } 
+}
+
+.select-button{
+  border-radius: 20px;
+  display: inline-flex;
+  padding: 20px ;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  flex-flow: wrap;
+  margin: 15px auto;
+
+  svg{
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    fill: $PrimaryColor;
+  }
+}
