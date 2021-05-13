@@ -24,10 +24,6 @@ class Home extends React.Component {
           this.handleChange = this.handleChange.bind(this);
           this.doneteChange = this.doneteChange.bind(this);
       }
-
-      
-    
-
       handleChange(date) {
         this.setState({
           startDate: date
@@ -43,7 +39,7 @@ class Home extends React.Component {
             <section className="EnqueiryPage">
             
             <Container>
-                <h1 className="text-center py-4">Sapna Foundation</h1>
+                <h1 className="text-center py-4">A small step for save someone life</h1>
                 <Row className="justify-content-center" >
                     <Col md={4} xs={10}>
                         <Link to="/patient" className="select-button btn"> 

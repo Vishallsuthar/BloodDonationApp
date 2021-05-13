@@ -6,28 +6,38 @@ import {
     Route,
     Link
   } from "react-router-dom";
+  
+import { AnimatedSwitch } from 'react-router-transition';
 
 import Donner from './pages/donner'
 import Patient from './pages/patient'
 import Home from './pages/home'
-
+import Faq from './pages/faq'
+import TermsOfUse from './pages/terms-of-use'
 
 class Routes extends React.Component {
     render() {
         
         
         return (
-            <Switch>
+        <Switch>
+             
             <Route exact path="/">
                 <Home />
             </Route>
             <Route exact path="/patient">
-                    <Patient />
+                <Patient />
             </Route>
             <Route exact path="/doner">
                 <Donner />
             </Route>
-    </Switch>
+            <Route exact path="/faq">
+                <Faq />
+            </Route>
+            <Route exact path="/terms-of-use">
+                <TermsOfUse />
+            </Route>
+        </Switch>
     
         )}
 }
