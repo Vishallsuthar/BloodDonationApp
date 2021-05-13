@@ -71,7 +71,7 @@ class Donner extends React.Component {
                     <Col lg={6}>
                         <h1 className="text-center py-2">Sapna Foundation</h1>
                         <p className="text-center pb-4 h6">We're proud on you for taken this step.</p>
-                    <Tabs className="TabsMenu " variant="pills"  defaultActiveKey="Blood" >
+                    <Tabs className="TabsMenu " variant="pills"  defaultActiveKey="Plasma" >
                             <Tab eventKey="Plasma" title="Plasma" >
                             <Form>
                                     <Row>

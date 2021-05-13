@@ -86,7 +86,7 @@ class  Patient extends React.Component {
                     </Col>
                     <Col lg={6}>
                         <h1 className="text-center py-2">Sapna Foundation</h1>
-                        <p className="text-center pb-4 h6">We're proud on you for taken this step.</p>
+                        <p className="text-center pb-4 h6">We are with you...</p>
                         <Form onSubmit={this.handleSubmit}>
                                     <Row>
                                         <Col lg={6}>

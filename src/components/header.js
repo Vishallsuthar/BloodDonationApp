@@ -11,7 +11,7 @@ export default class header extends Component {
         return (
             <header>
                 <Navbar bg="white"  expand="lg">
-                    <Link to="/" className="navbar-brand" ><Image className="" fluid width="60px" src={logo}/> Jivandata</Link>
+                    <Link to="/" className="navbar-brand" ><Image className="" fluid width="60px" src={logo}/> Sapna Foundation</Link>
                    <Navbar.Toggle>
                         <AiOutlineMenu/>
                     </Navbar.Toggle>

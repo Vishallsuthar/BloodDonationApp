@@ -27,7 +27,7 @@ class TermsOfUse extends React.Component {
                 <h1 className=" py-4">Terms of use</h1>
                 <h4>Please read below "TERMS OF USE" carefully: </h4>
                 <ul>
-<li><span className="icon"><FaRegHandPointRight/></span> Jivandata is a not for profit initiative and jivandata helps people needing plasma or blood to connect with people willing to donate plasma or blood.</li>
+<li><span className="icon"><FaRegHandPointRight/></span> Sapna Foundation is a not for profit initiative and Sapna Foundation helps people needing plasma or blood to connect with people willing to donate plasma or blood.</li>
 <li><span className="icon"><FaRegHandPointRight/></span> We allow prospective Plasma or blood Donors to register on the website.</li>
 <li><span className="icon"><FaRegHandPointRight/></span> We allow COVID-19 patients who need Plasma to register on the website.</li>
 <li><span className="icon"><FaRegHandPointRight/></span> A repository of contacts is maintained, once we have the details of the patient, we share the relevant prospective Plasma Donor's contact details with the patient/patient’s contact.</li>
