@@ -1,8 +1,8 @@
-import React, { Component,useState } from 'react'
+import React from 'react'
 import appImage from '../images/blood-donor-nurse_74855-6262.jpg'
 
 import firebase from '../firebase';
-import { Container, Row, Col, Image , Form, FormControl,FormGroup,Tabs,Tab, Button  } from 'react-bootstrap';
+import { Container, Row, Col, Image , Form, FormControl,FormGroup, Button  } from 'react-bootstrap';
 
 
 class  Patient extends React.Component {
@@ -15,7 +15,11 @@ class  Patient extends React.Component {
             haveDonatePlasmaPrev:false,
             haveDonateBloodPrev: false,
             PatientName: '',
-            PhoneNumber: ''
+            PhoneNumber: '',
+            BloodGroup:'',
+            requirement:'',
+            HospitalName:'',
+            CityName:''
           };
           this.lastplasmaDonteCalender = this.lastplasmaDonteCalender.bind(this);
           this.lastbloodDongeCalender = this.lastbloodDongeCalender.bind(this);
@@ -29,17 +33,22 @@ class  Patient extends React.Component {
       }
 
       
+      
       handleSubmit(e) {
-        e.preventDefault();
+        
         const itemsRef = firebase.database().ref('items');
         const item = {
-        PatientName: this.state.PatientName,
-          PhoneNumber: this.state.PhoneNumber
+            PatientName: this.state.PatientName,
+            PhoneNumber: this.state.PhoneNumber
         }
         itemsRef.push(item);
         this.setState({
             PatientName: '',
-            PhoneNumber: ''
+            PhoneNumber: '',
+            BloodGroup:'',
+            requirement:'',
+            HospitalName:'',
+            CityName:''
         });
       }
       lastbloodDongeCalender(date) {
@@ -70,9 +79,26 @@ class  Patient extends React.Component {
       }
       handleChange(e) {
         this.setState({
-          [e.target.name]: e.target.value
+          [e.target.name]: e.target.value,
         });
       }
+      onChange(e){
+        const re = /^[0-9\b]+$/;
+    
+        // if value is not blank, then test the regex
+    
+        if (e.target.value === '' || re.test(e.target.value)) {
+        this.setState({value: e.target.value})
+        }
+    }
+      
+
+    //   {this.state.PatientName}<br/>
+    //   {this.state.PhoneNumber}<br/>
+    //   {this.state.BloodGroup}<br/>
+    //   {this.state.requirement}<br/>
+    //   {this.state.HospitalName}<br/>
+    //   {this.state.CityName}<br/>
     render() {
         
         
@@ -86,6 +112,7 @@ class  Patient extends React.Component {
                     </Col>
                     <Col lg={6}>
                         <h1 className="text-center py-2">Sapna Foundation</h1>
+
                         <p className="text-center pb-4 h6">We are with you...</p>
                         <Form onSubmit={this.handleSubmit}>
                                     <Row>
@@ -102,12 +129,10 @@ class  Patient extends React.Component {
                                                 <FormControl as="input" name="PhoneNumber" onChange={this.handleChange}  placeholder="Phone Number"/>
                                             </FormGroup>
                                         </Col>
-                                       
-                                       
                                          <Col lg={6}>
                                             <FormGroup>
                                                 <Form.Label>Blood Group</Form.Label>
-                                                <Form.Control  as="select">
+                                                <Form.Control name="BloodGroup" onChange={this.handleChange}  as="select">
                                                     <option>Select blood group </option>
                                                     <option>A+</option>
                                                     <option>A-</option>
@@ -120,10 +145,12 @@ class  Patient extends React.Component {
                                                 </Form.Control>
                                             </FormGroup>
                                         </Col>
+                                       
+
                                         <Col lg={6}>
                                             <FormGroup>
                                                 <Form.Label>Whats you Required</Form.Label>
-                                                <Form.Control as="select">
+                                                <Form.Control name="requirement" onChange={this.handleChange} as="select">
                                                     <option>Select  </option>
                                                     <option>Plazma</option>
                                                     <option>Blood</option>
@@ -133,13 +160,13 @@ class  Patient extends React.Component {
                                         <Col lg={6}>
                                             <FormGroup>
                                                 <Form.Label>Hospital Name</Form.Label>
-                                                <FormControl as="input" placeholder="Hospital Name"/>
+                                                <FormControl as="input" name="HospitalName" onChange={this.handleChange} placeholder="Hospital Name"/>
                                             </FormGroup>
                                         </Col>
                                         <Col lg={6}>
                                             <FormGroup>
                                                 <Form.Label>City</Form.Label>
-                                                <Form.Control as="select">
+                                                <Form.Control name="CityName" onChange={this.handleChange} as="select">
                                                     <option>Select City </option>
                                                     <option>Dungarpur</option>
                                                     <option>Udaipur</option>

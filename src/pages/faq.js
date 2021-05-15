@@ -1,11 +1,6 @@
-import React, { Component,useState } from 'react'
-import { Container, Row, Col, Accordion , Card, FormControl,FormGroup,Tabs,Tab, Button  } from 'react-bootstrap';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+import React from 'react'
+import { Container, Row, Col, Accordion , Card } from 'react-bootstrap';
+
 
 class Faq extends React.Component {
     constructor(props) {

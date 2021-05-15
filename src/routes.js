@@ -1,19 +1,17 @@
 
-import React, { Component,useState } from 'react'
+import React from 'react'
 import {
-    BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
   } from "react-router-dom";
   
-import { AnimatedSwitch } from 'react-router-transition';
 
 import Donner from './pages/donner'
 import Patient from './pages/patient'
 import Home from './pages/home'
 import Faq from './pages/faq'
 import TermsOfUse from './pages/terms-of-use'
+import Ourteam from './pages/our-team'
 
 class Routes extends React.Component {
     render() {
@@ -36,6 +34,9 @@ class Routes extends React.Component {
             </Route>
             <Route exact path="/terms-of-use">
                 <TermsOfUse />
+            </Route>
+            <Route exact path="/our-team">
+                <Ourteam />
             </Route>
         </Switch>
     

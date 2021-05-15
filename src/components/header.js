@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { AiOutlineMenu } from 'react-icons/ai';
-import { Container, Navbar,Nav, Image ,Button } from 'react-bootstrap';
+import {  Navbar,Nav, Image  } from 'react-bootstrap';
 import { Link  } from "react-router-dom";
 
 
@@ -19,7 +19,7 @@ export default class header extends Component {
                     <Navbar.Collapse id="mainNavbar" className="justify-content-end ">
                     <Nav >
                         <Nav.Item ><Link to="/" className="nav-link" >Home</Link></Nav.Item>
-                        <Nav.Item ><Link to="/our-teams" className="nav-link" >Our Teams</Link></Nav.Item>
+                        <Nav.Item ><Link to="/our-team" className="nav-link" >Our Teams</Link></Nav.Item>
                         <Nav.Item ><Link to="/faq" className="nav-link" >Faq</Link></Nav.Item>
                         <Nav.Item ><Link to="/terms-of-use" className="nav-link" >Terms of use</Link></Nav.Item>
                 

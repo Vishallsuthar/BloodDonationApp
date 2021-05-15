@@ -1,13 +1,8 @@
-import React, { Component,useState } from 'react'
-import { Container, Row, Col, Accordion , Card, FormControl,FormGroup,Tabs,Tab, Button  } from 
+import React from 'react'
+import { Container} from 
 'react-bootstrap';
 import { FaRegHandPointRight } from 'react-icons/fa';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+
 
 class TermsOfUse extends React.Component {
     constructor(props) {

@@ -1,4 +1,5 @@
-import firebase from 'firebase'
+
+import firebase from 'firebase/app';
 const config = { 
    apiKey: "AIzaSyCokadEoGue_tMekgH-it84jvG30G5ELMg",
    authDomain: "sapnafoundation12.firebaseapp.com",

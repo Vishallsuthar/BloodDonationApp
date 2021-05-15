@@ -1,4 +1,4 @@
-import React, { Component,useState } from 'react'
+import React from 'react'
 import appImage from '../images/blood-donor-nurse_74855-6262.jpg'
 
 import DatePicker from "react-datepicker";
@@ -6,6 +6,47 @@ import DatePicker from "react-datepicker";
 import { subDays,subMonths } from "date-fns";
 import { Container, Row, Col, Image , Form, FormControl,FormGroup,Tabs,Tab, Button  } from 'react-bootstrap';
 
+
+const district = ['Banswara','Dungarpur','Udaipur']
+
+
+const addressData = [
+    {city:'Dungarpur',Dist:'Dungarpur'},
+    {city:'Simalwara',Dist:'Dungarpur'},
+    {city:'Jothri Pal',Dist:'Dungarpur'},
+    {city:'Sagwara',Dist:'Dungarpur'},
+    {city:'Aspur',Dist:'Dungarpur'},
+    {city:'Chikhli',Dist:'Dungarpur'},
+    {city:'Galiyakot',Dist:'Dungarpur'},
+    {city:'Bichiwara',Dist:'Dungarpur'},
+    {city:'Sabla',Dist:'Dungarpur'},
+    {city:'Banswara',Dist:'Banswara'},
+    {city:'Abapura',Dist:'Banswara'},
+    {city:'Ghari',Dist:'Banswara'},
+    {city:'Kushalgarh',Dist:'Banswara'},
+    {city:'Bagidora',Dist:'Banswara'},
+    {city:'Gangdatalyi',Dist:'Banswara'},
+    {city:'Ganoda',Dist:'Banswara'},
+    {city:'Sajjangarh',Dist:'Banswara'},
+    {city:'Anandpuri',Dist:'Banswara'},
+    {city:'Choti Sarvan',Dist:'Banswara'},
+    {city:'Arthuna',Dist:'Banswara'},
+    {city:'Girva',Dist:'Udaipur'},
+    {city:'Ganora',Dist:'Udaipur'},
+    {city:'Vallabnagar',Dist:'Udaipur'},
+    {city:'Mavli',Dist:'Udaipur'},
+    {city:'Sarada',Dist:'Udaipur'},
+    {city:'Kherwara',Dist:'Udaipur'},
+    {city:'Rishbhdev',Dist:'Udaipur'},
+    {city:'Salumbar',Dist:'Udaipur'},
+    {city:'Lasadiya',Dist:'Udaipur'},
+    {city:'Jandol',Dist:'Udaipur'},
+    {city:'Kotda',Dist:'Udaipur'},
+    {city:'Badhghav',Dist:'Udaipur'},
+    {city:'Bhindar',Dist:'Udaipur'},
+    {city:'Kanoda',Dist:'Udaipur'}
+]
+              
 
 class Donner extends React.Component {
     constructor(props) {
@@ -15,17 +56,17 @@ class Donner extends React.Component {
             prevBloodDonetionDate: new Date(),
             whatUserChoice:"",
             haveDonatePlasmaPrev:false,
-            haveDonateBloodPrev: false
+            haveDonateBloodPrev: false,
+            selectedDetrict:"",
 
             
           };
-          this.lastplasmaDonteCalender = this.lastplasmaDonteCalender.bind(this);
-          this.lastbloodDongeCalender = this.lastbloodDongeCalender.bind(this);
-
-          
-         this.doneteChange = this.doneteChange.bind(this);
-          this.havePlazmaChange = this.havePlazmaChange.bind(this);
-          this.haveBloodChange = this.haveBloodChange.bind(this);
+        this.lastplasmaDonteCalender = this.lastplasmaDonteCalender.bind(this);
+        this.lastbloodDongeCalender = this.lastbloodDongeCalender.bind(this);
+        this.selectDistrict = this.selectDistrict.bind(this);
+        this.doneteChange = this.doneteChange.bind(this);
+        this.havePlazmaChange = this.havePlazmaChange.bind(this);
+        this.haveBloodChange = this.haveBloodChange.bind(this);
       }
 
       
@@ -56,10 +97,19 @@ class Donner extends React.Component {
             whatUserChoice: e.target.value,
           })
       }
+      selectDistrict(e){
+        this.setState({
+            selectedDetrict: e.target.value,
+          })
+      }
+
+
+      
     render() {
         
-        
+
         return (
+           
             <section className="EnqueiryPage">
 
             
@@ -71,7 +121,7 @@ class Donner extends React.Component {
                     <Col lg={6}>
                         <h1 className="text-center py-2">Sapna Foundation</h1>
                         <p className="text-center pb-4 h6">We're proud on you for taken this step.</p>
-                    <Tabs className="TabsMenu " variant="pills"  defaultActiveKey="Plasma" >
+                        <Tabs className="TabsMenu " variant="pills"  defaultActiveKey="Plasma" >
                             <Tab eventKey="Plasma" title="Plasma" >
                             <Form>
                                     <Row>
@@ -90,23 +140,41 @@ class Donner extends React.Component {
                                         </Col>
                                         <Col lg={6}>
                                             <FormGroup>
-                                                <Form.Label>City</Form.Label>
-                                                <Form.Control as="select">
-                                                    <option>Select City </option>
-                                                    <option>Dungarpur</option>
-                                                    <option>Udaipur</option>
-                                                    <option>Sagwara</option>
-                                                    <option>Aspur</option>
-                                                    <option>Simalwara</option>
-                                                    <option>partapur</option>
-                                                    
+                                                <Form.Label>District</Form.Label>
+                                                <Form.Control as="select" onChange={this.selectDistrict}>
+                                                <option>-select District-</option>
+                                                    {district.map(function(items,i){
+                                                        return <option key={i} value={items}>{items}</option>
+                                                    })}
                                                 </Form.Control>
                                             </FormGroup>
+                                            
                                         </Col>
+                                        <Col lg={6}>{this.state.selectedDetrict === null?(<></>):(<>
+                                           </>
+                                                )}
+                                            <FormGroup>
+                                                <Form.Label>City</Form.Label>
+                                                <Form.Control as="select" >
+                                                <option>-Select City-</option>
+                                              
+                                                {this.state.selectedDetrict === ""?(<></>):(<>    {addressData.filter(t=>t.Dist === this.state.selectedDetrict).map((filteredPerson,i) => (
+                                                        <option key={i} value={filteredPerson.city}>
+                                                        {filteredPerson.city}
+                                                        </option>
+                                                    ))}</>
+                                                
+                                                )}
+                                              
+                                               </Form.Control>
+                                            </FormGroup>
+                                        </Col>
+
+                                        
                                         <Col lg={6}>
                                             <FormGroup>
                                                 <Form.Label>Blood Group</Form.Label>
-                                                <Form.Control as="select">
+                                                <Form.Control as="select" >
                                                     <option>Select blood group </option>
                                                     <option>A+</option>
                                                     <option>A-</option>
@@ -131,7 +199,9 @@ class Donner extends React.Component {
                                                 />
                                             </FormGroup>
                                         </Col>
-                                       {(this.state.haveDonatePlasmaPrev == true)? (<> <Col lg={6}>
+
+                                        
+                                       {(this.state.haveDonatePlasmaPrev === true)? (<> <Col lg={6}>
                                             <FormGroup>
                                                 <Form.Label>Last time donate Date</Form.Label>
                                                 <DatePicker className="form-control"
@@ -177,20 +247,31 @@ class Donner extends React.Component {
                                                 </FormGroup>
                                             </Col>
                                             <Col lg={6}>
-                                                <FormGroup>
-                                                    <Form.Label>City</Form.Label>
-                                                    <Form.Control as="select">
-                                                        <option>Select City </option>
-                                                        <option>Dungarpur</option>
-                                                        <option>Udaipur</option>
-                                                        <option>Sagwara</option>
-                                                        <option>Aspur</option>
-                                                        <option>Simalwara</option>
-                                                        <option>partapur</option>
-                                                        
-                                                    </Form.Control>
-                                                </FormGroup>
-                                            </Col>
+                                            <FormGroup>
+                                                <Form.Label>District</Form.Label>
+                                                <Form.Control as="select" onChange={this.selectDistrict}>
+                                                <option>-select District-</option>
+                                                    {district.map(function(items,i){
+                                                        return <option key={i} value={items}>{items}</option>
+                                                    })}
+                                                </Form.Control>
+                                            </FormGroup>
+                                            
+                                        </Col>
+                                        <Col lg={6}>
+                                            <FormGroup>
+                                                <Form.Label>City</Form.Label>
+                                                <Form.Control as="select" >
+                                                <option>-Select City-</option>
+                                                {this.state.selectedDetrict === ""?(<></>):(<>    {addressData.filter(t=>t.Dist === this.state.selectedDetrict).map((filteredPerson,i) => (
+                                                        <option key={i} value={filteredPerson.city}>
+                                                        {filteredPerson.city}
+                                                        </option>
+                                                    ))}</>
+                                                )} 
+                                               </Form.Control>
+                                            </FormGroup>
+                                        </Col>
                                             <Col lg={6}>
                                                 <FormGroup>
                                                     <Form.Label>Blood Group</Form.Label>
@@ -219,7 +300,7 @@ class Donner extends React.Component {
                                                 
                                                 </FormGroup>
                                             </Col>
-                                        {(this.state.haveDonateBloodPrev == true)? (<> <Col lg={6}>
+                                        {(this.state.haveDonateBloodPrev === true)? (<> <Col lg={6}>
                                                 <FormGroup>
                                                     <Form.Label>Last time donate Date</Form.Label>
                                                     <DatePicker className="form-control"
