@@ -21,7 +21,7 @@ class Ourteam extends React.Component {
             
             <Container>
                 <h1 className="text-left pt-4 pb-2 mb-0">Our Teams</h1>
-                <p className="text-left ">If you need any other help with our teams.. fill free to contact us..</p>
+                <p className="text-left "></p>
                 <Row className="justify-content-center" >
                     <Col md={4} xs={10}>
                         <Card className="text-center bg-white p-4 border-0 mb-4">
