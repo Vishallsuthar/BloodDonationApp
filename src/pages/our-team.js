@@ -1,20 +1,13 @@
 import React from 'react'
 import { Container, Row, Col, Image , Card  } from 'react-bootstrap';
-
-
-  import { FaPhoneAlt ,FaRegEnvelope} from 'react-icons/fa';
-  
-  import logo  from '../images/pp.jpg'
+import { FaPhoneAlt ,FaRegEnvelope} from 'react-icons/fa';
+import logo  from '../images/pp.jpg'
 class Ourteam extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          
-          };
-          
-      }
-    
-     
+        };
+    }
     render() {
         return (
             <section className="our-temas-section">
